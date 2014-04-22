@@ -67,15 +67,6 @@
     }
 }
 
-- (void)keyDown:(NSEvent *)theEvent {
-    int keycode = theEvent.keyCode;
-    if (keycode == 36) {
-        
-    } else {
-        [super keyDown:theEvent];
-    }
-}
-
 -(void)mouseMoved:(NSEvent *)theEvent {
     [super mouseMoved:theEvent];
     NSPoint p = [self convertPoint:[theEvent locationInWindow] fromView:nil];

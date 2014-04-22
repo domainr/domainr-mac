@@ -9,6 +9,7 @@
 #import "AXStatusItemPopup.h"
 #import "INPopoverWindow.h"
 #import "INPopoverController.h"
+#import "DMRViewController.h"
 
 #define kMinViewWidth 22
 
@@ -16,7 +17,7 @@
 // Private variables
 //
 @interface AXStatusItemPopup () {
-    NSViewController *_viewController;
+    DMRViewController *_viewController;
     BOOL _active;
     NSImageView *_imageView;
     NSStatusItem *_statusItem;
@@ -165,6 +166,7 @@
     
     if (!_popover.popoverIsVisible) {
         _popover.animates = animated;
+        [_viewController.searchBox becomeFirstResponder];
         [_popover presentPopoverFromRect:self.frame inView:self preferredArrowDirection:INPopoverArrowDirectionUp anchorsToPositionView:YES];
         _popoverTransiencyMonitor = [NSEvent addGlobalMonitorForEventsMatchingMask:NSLeftMouseDownMask|NSRightMouseDownMask handler:^(NSEvent* event) {
             [self hidePopover];

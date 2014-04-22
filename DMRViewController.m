@@ -18,11 +18,11 @@
 #define kResultCellHeight ((int) 40)
 
 @interface DMRViewController ()
-    @property(nonatomic) DMRTextFieldView *searchBox;
     @property(nonatomic) NSProgressIndicator *spinner;
     @property(nonatomic) NSMutableArray *domains;
     @property(nonatomic) NSString *query;
     @property(nonatomic) DMRResultsTableView *tableView;
+    @property(nonatomic) BOOL shouldOpenBrowser;
 @end
 
 @implementation DMRViewController
@@ -31,6 +31,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        _shouldOpenBrowser = NO;
         _searchBox = [[DMRTextFieldView alloc] initWithFrame:CGRectMake(
                                                                                kSpacer,
                                                                                self.view.frame.size.height - 40,
@@ -42,7 +43,7 @@
         [_searchBox.cell setFocusRingType:NSFocusRingTypeNone];
         _searchBox.textColor = [NSColor colorWithRed:51/255.0f green:51/255.0f blue:51/255.0f alpha:1.0];
         _searchBox.target = self;
-        _searchBox.action = @selector(search:);
+        _searchBox.action = @selector(searchBoxAction:);
         _searchBox.bezelStyle = NSTextFieldRoundedBezel;
         [_searchBox becomeFirstResponder];
         [self.view addSubview:_searchBox];
@@ -80,7 +81,13 @@
 - (void)tableView:(NSTableView *)tableView didPressEnter:(NSEvent *)theEvent {
     NSDictionary *domainObject = _domains[[_tableView selectedRow]];
     NSString *url = [self urlForDomainObject:domainObject];
+    url = [self urlWithMacID:url];
     [self openUrl:url];
+}
+
+- (NSString *)urlWithMacID:(NSString *)url {
+    NSString *newUrl = [NSString stringWithFormat:@"%@?client_id=mac", url];
+    return newUrl;
 }
 
 - (void)openUrl:(NSString *)url {
@@ -91,12 +98,13 @@
 - (NSString *)urlForDomainObject:(NSDictionary *)domainObject {
     NSString *domain = domainObject[@"domain"];
     NSString *safeQuery = [_query stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSString *URL = [NSString stringWithFormat:@"https://domai.nr/%@/with/%@?client_id=%@", safeQuery, domain, @"mac"];
+    NSString *URL = [NSString stringWithFormat:@"https://domai.nr/%@/with/%@", safeQuery, domain];
     return URL;
 }
 
 - (void)tableView:(NSTableView *)tableView didClickedRow:(NSInteger)row {
     NSString *url = [self urlForDomainObject:_domains[row]];
+    url = [self urlWithMacID:url];
     [self openUrl:url];
 }
 
@@ -113,6 +121,12 @@
     NSInteger currentIndex = [_tableView selectedRow];
     NSInteger desiredIndex;
     
+    if (keycode == 126 || keycode == 125) {
+        _shouldOpenBrowser = YES;
+    } else {
+        _shouldOpenBrowser = NO;
+    }
+    
     if (keycode == 126) {
         if (currentIndex == 0) {
             desiredIndex = [_domains count] - 1;
@@ -123,7 +137,7 @@
             NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:desiredIndex];
             [_tableView selectRowIndexes:indexSet byExtendingSelection:NO];
         }
-    } else {
+    } else if (keycode == 125) {
         if (currentIndex == [_domains count] - 1) {
             desiredIndex = 0;
             NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:desiredIndex];
@@ -149,14 +163,14 @@
             parameters:@{
                          @"q": _searchBox.stringValue,
                          @"client_id": @"mac"
-                        }
+                         }
             completion:^(id response, NSHTTPURLResponse *urlResponse, NSError *error) {
                 _domains = response[@"results"];
                 _query = response[@"query"];
                 
                 [_tableView enumerateAvailableRowViewsUsingBlock:^(NSTableRowView *rowView, NSInteger row){
                     NSTableCellView *cellView = [rowView viewAtColumn:0];
-                        cellView.textField.textColor = [NSColor colorWithRed:40/255.0f green:112/255.0f blue:176/255.0f alpha:1.0];
+                    cellView.textField.textColor = [NSColor colorWithRed:40/255.0f green:112/255.0f blue:176/255.0f alpha:1.0];
                 }];
                 
                 
@@ -165,6 +179,17 @@
                 [_spinner setHidden:YES];
             }
      ];
+}
+
+- (void)searchBoxAction:(id)selector {
+    if (_shouldOpenBrowser) {
+        NSDictionary *domainObject = _domains[[_tableView selectedRow]];
+        NSString *url = [self urlForDomainObject:domainObject];
+        url = [self urlWithMacID:url];
+        [self openUrl:url];
+    } else {
+        [self search:selector];
+    }
 }
 
 -(NSTableRowView *)tableView:(NSTableView *)tableView rowViewForRow:(NSInteger)row{
