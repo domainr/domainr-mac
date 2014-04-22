@@ -11,11 +11,13 @@
 @protocol DMRTextFieldViewDelegate <NSObject>
 
 - (void)didKeyUp:(NSEvent *)theEvent;
+- (void)timerDidExpire:(NSTimer *)timer;
 
 @end
 
 @interface DMRTextFieldView : NSTextField
 
 @property (nonatomic, weak) id<DMRTextFieldViewDelegate> extendedDelegate;
+@property (nonatomic, weak) NSTimer *timer;
 
 @end
