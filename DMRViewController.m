@@ -18,7 +18,6 @@
 #define kResultCellHeight ((int) 40)
 
 @interface DMRViewController ()
-    @property(nonatomic) DMRTextFieldView *searchBox;
     @property(nonatomic) NSProgressIndicator *spinner;
     @property(nonatomic) NSMutableArray *domains;
     @property(nonatomic) NSString *query;
