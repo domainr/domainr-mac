@@ -8,10 +8,12 @@
 
 #import <Cocoa/Cocoa.h>
 #import "AXStatusItemPopup.h"
+#import "DMRTextFieldView.h"
 #import "DMRResultsTableView.h"
 
 @interface DMRViewController : NSViewController<NSTableViewDataSource, NSTableViewDelegate, ExtendedTableViewDelegate>
 
 @property(weak, nonatomic) AXStatusItemPopup *statusItemPopup;
+@property(nonatomic) DMRTextFieldView *searchBox;
 
 @end
