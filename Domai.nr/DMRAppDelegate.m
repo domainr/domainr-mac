@@ -33,10 +33,15 @@
     
     DDHotKeyCenter *c = [DDHotKeyCenter sharedHotKeyCenter];
     [c registerHotKeyWithKeyCode:kVK_ANSI_D modifierFlags:(NSCommandKeyMask + NSShiftKeyMask) target:self action:@selector(openWindow) object:nil];
+    [c registerHotKeyWithKeyCode:kVK_Escape modifierFlags:nil target:self action:@selector(closeWindow) object:nil];
 }
 
 - (void)openWindow {
     [_statusItemPopup showPopover];
+}
+
+- (void)closeWindow {
+    [_statusItemPopup hidePopover];
 }
 
 @end
