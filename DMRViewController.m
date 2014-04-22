@@ -104,6 +104,10 @@
     return kResultCellHeight;
 }
 
+- (void)timerDidExpire:(NSTimer *)timer {
+    [self search:nil];
+}
+
 - (void)didKeyUp:(NSEvent *)theEvent {
     int keycode = theEvent.keyCode;
     NSInteger currentIndex = [_tableView selectedRow];
