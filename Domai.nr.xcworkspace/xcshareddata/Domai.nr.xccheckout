@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>F779A627-38F8-40C0-A78E-3026FFBCC005</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Domai.nr</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>1CBAD3DF-BCDC-475C-9D1C-7DAD85419CC2</key>
+		<string>ssh://github.com/domainr/domainr-mac.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Domai.nr.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>1CBAD3DF-BCDC-475C-9D1C-7DAD85419CC2</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/domainr/domainr-mac.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>1CBAD3DF-BCDC-475C-9D1C-7DAD85419CC2</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>1CBAD3DF-BCDC-475C-9D1C-7DAD85419CC2</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Domai.nr</string>
+		</dict>
+	</array>
+</dict>
+</plist>
