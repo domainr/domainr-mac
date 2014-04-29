@@ -34,9 +34,8 @@
 - (void)keyUp:(NSEvent *)theEvent {
     [_timer invalidate];
     int keycode = theEvent.keyCode;
-    if (keycode == 126 || keycode == 125) {
-        [self.extendedDelegate didKeyUp:theEvent];
-    } else {
+    [self.extendedDelegate didKeyUp:theEvent];
+    if (keycode != 126 && keycode != 125) {
         [super keyUp:theEvent];
         if ([keycodeBlacklist count] == 0) {
             keycodeBlacklist = @[@36, @123, @124];
