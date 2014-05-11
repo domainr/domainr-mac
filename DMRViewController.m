@@ -15,7 +15,7 @@
 
 #define kSpacer ((int) 16)
 #define kAvailabilityImageDimension ((int) 16)
-#define kResultCellHeight ((int) 40)
+#define kResultCellHeight ((int) 30)
 
 @interface DMRViewController ()
     @property(nonatomic) NSProgressIndicator *spinner;
@@ -58,9 +58,10 @@
         _spinner.style = NSProgressIndicatorSpinningStyle;
         
         NSScrollView *tableContainer = [[NSScrollView alloc] initWithFrame:NSMakeRect(2,
-                                                                                      kSpacer,
+                                                                                      kSpacer + 20,
                                                                                       self.view.frame.size.width - 4,
-                                                                                      self.view.frame.size.height - (2 * kSpacer) - _searchBox.frame.size.height)];
+                                                                                      self.view.frame.size.height - 36 - _searchBox.frame.size.height - kSpacer)];
+        tableContainer.wantsLayer = YES;
         _tableView = [[DMRResultsTableView alloc] initWithFrame:NSMakeRect(0, 0, self.view.frame.size.width, tableContainer.frame.size.height)];
         NSTableColumn *column1 = [[NSTableColumn alloc] initWithIdentifier:@"Col1"];
         _tableView.backgroundColor = [NSColor whiteColor];
@@ -74,8 +75,38 @@
         _tableView.headerView = nil;
         [tableContainer setHasVerticalScroller:YES];
         [self.view addSubview:tableContainer];
+
+        NSButton *poweredByDomainr = [[NSButton alloc] initWithFrame:NSMakeRect(kSpacer,
+                                                                                self.view.frame.size.height - self.view.frame.size.height + (kSpacer),
+                                                                                      self.view.frame.size.width - (kSpacer * 2),
+                                                                                      14)];
+        [poweredByDomainr setBordered:NO];
+        poweredByDomainr.title = @"Powered by Domai.nr";
+        [poweredByDomainr setAction:@selector(didClickPoweredBy:)];
+        poweredByDomainr.target = self;
+        poweredByDomainr.font = [NSFont fontWithName:poweredByDomainr.font.fontName size:10.0f];
+        [poweredByDomainr sizeToFit];
+        NSMutableAttributedString *labelTitle =
+        [[NSMutableAttributedString alloc] initWithAttributedString:[poweredByDomainr attributedTitle]];
+        
+        [poweredByDomainr setAlignment:NSLeftTextAlignment];
+        
+        NSRange titleRange = NSMakeRange(0, [labelTitle length]);
+        
+        [labelTitle addAttribute:NSForegroundColorAttributeName
+                           value:[NSColor colorWithRed:180/255.0f green:189/255.0f blue:175/255.0f alpha:1.0]
+                           range:titleRange];
+        
+        [poweredByDomainr setAttributedTitle:labelTitle];
+        [self.view addSubview:poweredByDomainr positioned:NSWindowAbove relativeTo:nil];
     }
     return self;
+}
+
+- (void)didClickPoweredBy: (id)sender {
+    NSString *url = @"https://domai.nr/";
+    url = [self urlWithMacID:url];
+    [self openUrl:url];
 }
 
 - (void)tableView:(NSTableView *)tableView didPressEnter:(NSEvent *)theEvent {
@@ -246,9 +277,9 @@
     if (result.textField == nil) {
         NSTextField *textField = [[NSTextField alloc] initWithFrame:CGRectMake(
                                                                                kSpacer + kAvailabilityImageDimension,
-                                                                               kSpacer / 2,
+                                                                               3,
                                                                                self.view.frame.size.width - (2 * kSpacer) - kAvailabilityImageDimension,
-                                                                               kResultCellHeight - kSpacer)];
+                                                                               kResultCellHeight - 6)];
         textField.font = [NSFont fontWithName:@"HelveticaNeue" size:15.0f];
         textField.textColor = [NSColor colorWithRed:40/255.0f green:112/255.0f blue:176/255.0f alpha:1.0];
         textField.backgroundColor = [NSColor clearColor];
@@ -261,7 +292,7 @@
     if (result.imageView == nil) {
         NSImageView *imageView = [[NSImageView alloc] initWithFrame:CGRectMake(
                                                                                0,
-                                                                               0,
+                                                                               -6,
                                                                                40,
                                                                                40)];
         [result addSubview:imageView];
