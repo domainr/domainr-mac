@@ -87,7 +87,6 @@ static NSGradient *gradientWithTargetColor(NSColor *targetColor) {
     if (self.selectionHighlightStyle != NSTableViewSelectionHighlightStyleNone) {
         NSColor* myColor = [NSColor colorWithRed:40/255.0f green:112/255.0f blue:176/255.0f alpha:1.0];
         [myColor set];
-        NSColor *white = [NSColor whiteColor];
         NSRectFill(self.bounds);
     }
 }
