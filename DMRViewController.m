@@ -270,7 +270,7 @@
     
     result.textField.stringValue = _domains[row][@"domain"];
     NSImage *image = [NSImage imageNamed:_domains[row][@"availability"]];
-    [image setSize:NSSizeFromCGSize(CGSizeMake(16.0f, 16.0f))];
+    [image setSize:NSSizeFromCGSize(CGSizeMake(10.0f, 10.0f))];
     [result.imageView setImage:image];
 
     result.identifier = @"MyView";
