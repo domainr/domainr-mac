@@ -58,9 +58,9 @@
         _spinner.style = NSProgressIndicatorSpinningStyle;
         
         NSScrollView *tableContainer = [[NSScrollView alloc] initWithFrame:NSMakeRect(2,
-                                                                                      kSpacer + 20,
+                                                                                      kSpacer + 23,
                                                                                       self.view.frame.size.width - 4,
-                                                                                      self.view.frame.size.height - 36 - _searchBox.frame.size.height - kSpacer)];
+                                                                                      self.view.frame.size.height - 40 - _searchBox.frame.size.height - kSpacer)];
         tableContainer.wantsLayer = YES;
         _tableView = [[DMRResultsTableView alloc] initWithFrame:NSMakeRect(0, 0, self.view.frame.size.width, tableContainer.frame.size.height)];
         NSTableColumn *column1 = [[NSTableColumn alloc] initWithIdentifier:@"Col1"];
@@ -101,10 +101,12 @@
         [poweredByDomainr setAttributedTitle:labelTitle];
         [self.view addSubview:poweredByDomainr positioned:NSWindowAbove relativeTo:nil];
 
-        
-
-
         NSInteger popupButtonSize = 44;
+
+        NSBox *box = [[NSBox alloc] initWithFrame:NSMakeRect(0, 38, self.view.frame.size.width, 3)];
+        [self.view addSubview:box];
+
+
         NSPopUpButton *popupButton = [[NSPopUpButton alloc] initWithFrame:NSMakeRect(self.view.frame.size.width - kSpacer - popupButtonSize,
 
                                                                                 0,
