@@ -85,7 +85,7 @@
         poweredByDomainr.title = @"Powered by Domai.nr";
         [poweredByDomainr setAction:@selector(didClickPoweredBy:)];
         poweredByDomainr.target = self;
-        poweredByDomainr.font = [NSFont fontWithName:poweredByDomainr.font.fontName size:10.0f];
+        poweredByDomainr.font = [NSFont fontWithName:poweredByDomainr.font.fontName size:11.0f];
         [poweredByDomainr sizeToFit];
         NSMutableAttributedString *labelTitle =
         [[NSMutableAttributedString alloc] initWithAttributedString:[poweredByDomainr attributedTitle]];
@@ -123,8 +123,8 @@
         dummy.title = @"";
         dummy.image = [NSImage imageNamed:NSImageNameActionTemplate];
         [menu addItem:dummy];
-        NSMenuItem *fooMenuItem = [[NSMenuItem alloc] initWithTitle:@"Preferences" action:NULL keyEquivalent:@""];
-        NSMenuItem *barMenuItem = [[NSMenuItem alloc] initWithTitle:@"Quit" action:NULL keyEquivalent:@""];
+        NSMenuItem *fooMenuItem = [[NSMenuItem alloc] initWithTitle:@"Preferences" action:NULL keyEquivalent:@","];
+        NSMenuItem *barMenuItem = [[NSMenuItem alloc] initWithTitle:@"Quit" action:NULL keyEquivalent:@"q"];
         [menu addItem:fooMenuItem];
         [menu addItem:[NSMenuItem separatorItem]];
         [menu addItem:barMenuItem];
