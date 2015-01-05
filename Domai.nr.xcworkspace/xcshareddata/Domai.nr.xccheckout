@@ -12,20 +12,24 @@
 	<dict>
 		<key>1CBAD3DF-BCDC-475C-9D1C-7DAD85419CC2</key>
 		<string>ssh://github.com/domainr/domainr-mac.git</string>
+		<key>CA94F585FCBDE32EED060D208555F89C6CE1E82C</key>
+		<string>https://github.com/domainr/domainr-mac.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Domai.nr.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>1CBAD3DF-BCDC-475C-9D1C-7DAD85419CC2</key>
+		<string>../../Domai.nr</string>
+		<key>CA94F585FCBDE32EED060D208555F89C6CE1E82C</key>
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/domainr/domainr-mac.git</string>
+	<string>https://github.com/domainr/domainr-mac.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>1CBAD3DF-BCDC-475C-9D1C-7DAD85419CC2</string>
+	<string>CA94F585FCBDE32EED060D208555F89C6CE1E82C</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
@@ -35,6 +39,14 @@
 			<string>1CBAD3DF-BCDC-475C-9D1C-7DAD85419CC2</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Domai.nr</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>CA94F585FCBDE32EED060D208555F89C6CE1E82C</string>
+			<key>IDESourceControlWCCName</key>
+			<string>domainr-mac</string>
 		</dict>
 	</array>
 </dict>

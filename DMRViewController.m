@@ -69,6 +69,7 @@
         [_tableView addTableColumn:column1];
         _tableView.extendedDelegate = self;
         [_tableView setDelegate:self];
+        [_tableView setBackgroundColor:[NSColor clearColor]];
         [_tableView setDataSource:self];
         [_tableView reloadData];
         [tableContainer setDocumentView:_tableView];
@@ -99,12 +100,40 @@
         
         [poweredByDomainr setAttributedTitle:labelTitle];
         [self.view addSubview:poweredByDomainr positioned:NSWindowAbove relativeTo:nil];
+
+        
+
+
+        NSInteger popupButtonSize = 44;
+        NSPopUpButton *popupButton = [[NSPopUpButton alloc] initWithFrame:NSMakeRect(self.view.frame.size.width - kSpacer - popupButtonSize,
+
+                                                                                0,
+                                                                                popupButtonSize,
+                                                                                popupButtonSize)];
+
+        NSMenu *menu = [[NSMenu alloc] init];
+        popupButton.pullsDown = YES;
+        popupButton.bordered = NO;
+
+        [self.view addSubview:popupButton];
+
+        NSMenuItem *dummy = [[NSMenuItem alloc] init];
+        dummy.title = @"";
+        dummy.image = [NSImage imageNamed:NSImageNameActionTemplate];
+        [menu addItem:dummy];
+        NSMenuItem *fooMenuItem = [[NSMenuItem alloc] initWithTitle:@"Preferences" action:NULL keyEquivalent:@""];
+        NSMenuItem *barMenuItem = [[NSMenuItem alloc] initWithTitle:@"Quit" action:NULL keyEquivalent:@""];
+        [menu addItem:fooMenuItem];
+        [menu addItem:[NSMenuItem separatorItem]];
+        [menu addItem:barMenuItem];
+        
+        popupButton.menu = menu;
     }
     return self;
 }
 
 - (void)didClickPoweredBy: (id)sender {
-    NSString *url = @"https://domai.nr/";
+    NSString *url = @"https://domainr.com/about";
     url = [self urlWithMacID:url];
     [self openUrl:url];
 }

@@ -25,7 +25,7 @@
     _viewController = [[DMRViewController alloc] initWithNibName:@"DMRViewController" bundle:nil];
     
     NSImage *image = [NSImage imageNamed:@"icon"];
-    NSImage *alternateImage = [NSImage imageNamed:@"icon"];
+    NSImage *alternateImage = [NSImage imageNamed:@"icon_active"];
     
     _statusItemPopup = [[AXStatusItemPopup alloc] initWithViewController:_viewController image:image alternateImage:alternateImage];
     
