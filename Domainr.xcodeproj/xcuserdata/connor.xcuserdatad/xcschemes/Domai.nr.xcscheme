@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B356192918EA4641008EFAC1"
-               BuildableName = "Domai.nr.app"
-               BlueprintName = "Domai.nr"
-               ReferencedContainer = "container:Domai.nr.xcodeproj">
+               BuildableName = "Domainr.app"
+               BlueprintName = "Domainr"
+               ReferencedContainer = "container:Domainr.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B356194A18EA4641008EFAC1"
-               BuildableName = "Domai.nrTests.xctest"
-               BlueprintName = "Domai.nrTests"
-               ReferencedContainer = "container:Domai.nr.xcodeproj">
+               BuildableName = "DomainrTests.xctest"
+               BlueprintName = "DomainrTests"
+               ReferencedContainer = "container:Domainr.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B356192918EA4641008EFAC1"
-            BuildableName = "Domai.nr.app"
-            BlueprintName = "Domai.nr"
-            ReferencedContainer = "container:Domai.nr.xcodeproj">
+            BuildableName = "Domainr.app"
+            BlueprintName = "Domainr"
+            ReferencedContainer = "container:Domainr.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B356192918EA4641008EFAC1"
-            BuildableName = "Domai.nr.app"
-            BlueprintName = "Domai.nr"
-            ReferencedContainer = "container:Domai.nr.xcodeproj">
+            BuildableName = "Domainr.app"
+            BlueprintName = "Domainr"
+            ReferencedContainer = "container:Domainr.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B356192918EA4641008EFAC1"
-            BuildableName = "Domai.nr.app"
-            BlueprintName = "Domai.nr"
-            ReferencedContainer = "container:Domai.nr.xcodeproj">
+            BuildableName = "Domainr.app"
+            BlueprintName = "Domainr"
+            ReferencedContainer = "container:Domainr.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
