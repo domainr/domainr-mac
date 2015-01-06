@@ -44,6 +44,7 @@
         _searchBox.extendedDelegate = self;
         [_searchBox.cell setFocusRingType:NSFocusRingTypeNone];
         _searchBox.textColor = [NSColor colorWithRed:51/255.0f green:51/255.0f blue:51/255.0f alpha:1.0];
+        [_searchBox setFont:[NSFont systemFontOfSize:13.0f]];
         _searchBox.target = self;
         _searchBox.action = @selector(searchBoxAction:);
         _searchBox.bezelStyle = NSTextFieldRoundedBezel;
@@ -80,7 +81,7 @@
         [self.view addSubview:tableContainer];
 
         NSButton *poweredByDomainr = [[NSButton alloc] initWithFrame:NSMakeRect(kSpacer,
-                                                                                self.view.frame.size.height - self.view.frame.size.height + (kSpacer),
+                                                                                self.view.frame.size.height - self.view.frame.size.height + (kSpacer) - 2,
                                                                                       self.view.frame.size.width - (kSpacer * 2),
                                                                                       14)];
         [poweredByDomainr setBordered:NO];
