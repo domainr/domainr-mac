@@ -58,9 +58,9 @@
         _spinner.style = NSProgressIndicatorSpinningStyle;
         
         NSScrollView *tableContainer = [[NSScrollView alloc] initWithFrame:NSMakeRect(2,
-                                                                                      kSpacer + 20,
+                                                                                      kSpacer + 23,
                                                                                       self.view.frame.size.width - 4,
-                                                                                      self.view.frame.size.height - 36 - _searchBox.frame.size.height - kSpacer)];
+                                                                                      self.view.frame.size.height - 40 - _searchBox.frame.size.height - kSpacer)];
         tableContainer.wantsLayer = YES;
         _tableView = [[DMRResultsTableView alloc] initWithFrame:NSMakeRect(0, 0, self.view.frame.size.width, tableContainer.frame.size.height)];
         NSTableColumn *column1 = [[NSTableColumn alloc] initWithIdentifier:@"Col1"];
@@ -69,6 +69,7 @@
         [_tableView addTableColumn:column1];
         _tableView.extendedDelegate = self;
         [_tableView setDelegate:self];
+        [_tableView setBackgroundColor:[NSColor clearColor]];
         [_tableView setDataSource:self];
         [_tableView reloadData];
         [tableContainer setDocumentView:_tableView];
@@ -84,7 +85,7 @@
         poweredByDomainr.title = @"Powered by Domai.nr";
         [poweredByDomainr setAction:@selector(didClickPoweredBy:)];
         poweredByDomainr.target = self;
-        poweredByDomainr.font = [NSFont fontWithName:poweredByDomainr.font.fontName size:10.0f];
+        poweredByDomainr.font = [NSFont fontWithName:poweredByDomainr.font.fontName size:11.0f];
         [poweredByDomainr sizeToFit];
         NSMutableAttributedString *labelTitle =
         [[NSMutableAttributedString alloc] initWithAttributedString:[poweredByDomainr attributedTitle]];
@@ -99,12 +100,42 @@
         
         [poweredByDomainr setAttributedTitle:labelTitle];
         [self.view addSubview:poweredByDomainr positioned:NSWindowAbove relativeTo:nil];
+
+        NSInteger popupButtonSize = 44;
+
+        NSBox *box = [[NSBox alloc] initWithFrame:NSMakeRect(0, 38, self.view.frame.size.width, 3)];
+        [self.view addSubview:box];
+
+
+        NSPopUpButton *popupButton = [[NSPopUpButton alloc] initWithFrame:NSMakeRect(self.view.frame.size.width - kSpacer - popupButtonSize,
+
+                                                                                0,
+                                                                                popupButtonSize,
+                                                                                popupButtonSize)];
+
+        NSMenu *menu = [[NSMenu alloc] init];
+        popupButton.pullsDown = YES;
+        popupButton.bordered = NO;
+
+        [self.view addSubview:popupButton];
+
+        NSMenuItem *dummy = [[NSMenuItem alloc] init];
+        dummy.title = @"";
+        dummy.image = [NSImage imageNamed:NSImageNameActionTemplate];
+        [menu addItem:dummy];
+        NSMenuItem *fooMenuItem = [[NSMenuItem alloc] initWithTitle:@"Preferences" action:NULL keyEquivalent:@","];
+        NSMenuItem *barMenuItem = [[NSMenuItem alloc] initWithTitle:@"Quit" action:NULL keyEquivalent:@"q"];
+        [menu addItem:fooMenuItem];
+        [menu addItem:[NSMenuItem separatorItem]];
+        [menu addItem:barMenuItem];
+        
+        popupButton.menu = menu;
     }
     return self;
 }
 
 - (void)didClickPoweredBy: (id)sender {
-    NSString *url = @"https://domai.nr/";
+    NSString *url = @"https://domainr.com/about";
     url = [self urlWithMacID:url];
     [self openUrl:url];
 }

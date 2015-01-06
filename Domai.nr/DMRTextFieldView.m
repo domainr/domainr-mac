@@ -48,7 +48,7 @@
             }
         }
         if (!found) { // if it's not in our blacklist, start the timer.
-            _timer = [NSTimer scheduledTimerWithTimeInterval:0.7f
+            _timer = [NSTimer scheduledTimerWithTimeInterval:0.1f
                                                       target:self
                                                     selector:@selector(didExpire:)
                                                     userInfo:nil
