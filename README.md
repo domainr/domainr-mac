@@ -1,8 +1,8 @@
-# Domai.nr for Mac
+# Domainr for Mac
 
-Domai.nr for Mac is a simple menubar application that lets you search Domai.nr from the convenience of your desktop.
+Domainr for Mac is a simple menubar application that lets you search Domainr from the convenience of your desktop.
 
-There's a global keyboard shortcut (`Cmd+Shift+D`) and clicking a search result opens up the information page on Domai.nr regarding the domain you selected.
+There's a global keyboard shortcut (`Cmd+Shift+D`) and clicking a search result opens up the information page on Domainr regarding the domain you selected.
 
 ### Running locally
 
@@ -12,7 +12,7 @@ There's a global keyboard shortcut (`Cmd+Shift+D`) and clicking a search result 
 
 3) `cd` into the project directory and run `pod install`.
 
-4) Open the `Domai.nr.xcworkspace` file and start hacking!
+4) Open the `Domainr.xcworkspace` file and start hacking!
 
 ### Screenshots
 
