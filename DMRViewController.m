@@ -10,6 +10,7 @@
 #import "DMRTableRowView.h"
 #import "DMRTextFieldView.h"
 #import "DMRResultsTableView.h"
+#import "DMRSettingsWindowController.h"
 #import <QuartzCore/QuartzCore.h>
 #import <SVHTTPRequest.h>
 
@@ -23,6 +24,7 @@
     @property(nonatomic) NSString *query;
     @property(nonatomic) DMRResultsTableView *tableView;
     @property(nonatomic) BOOL shouldOpenBrowser;
+    @property (strong, nonatomic) DMRSettingsWindowController *prefs;
 @end
 
 @implementation DMRViewController
@@ -123,8 +125,8 @@
         dummy.title = @"";
         dummy.image = [NSImage imageNamed:NSImageNameActionTemplate];
         [menu addItem:dummy];
-        NSMenuItem *fooMenuItem = [[NSMenuItem alloc] initWithTitle:@"Preferences" action:NULL keyEquivalent:@","];
-        NSMenuItem *barMenuItem = [[NSMenuItem alloc] initWithTitle:@"Quit" action:NULL keyEquivalent:@"q"];
+        NSMenuItem *fooMenuItem = [[NSMenuItem alloc] initWithTitle:@"Preferences" action:@selector(didClickPreferences) keyEquivalent:@","];
+        NSMenuItem *barMenuItem = [[NSMenuItem alloc] initWithTitle:@"Quit" action:@selector(didClickQuit) keyEquivalent:@"q"];
         [menu addItem:fooMenuItem];
         [menu addItem:[NSMenuItem separatorItem]];
         [menu addItem:barMenuItem];
@@ -132,6 +134,19 @@
         popupButton.menu = menu;
     }
     return self;
+}
+
+- (void)didClickPreferences {
+    _prefs = [[DMRSettingsWindowController alloc] initWithWindowNibName:@"DMRSettingsWindowController"];
+    [_prefs showWindow:self];
+    [NSApp activateIgnoringOtherApps:YES];
+    [_prefs.window makeKeyAndOrderFront:NSApp];
+    _prefs.opener = self;
+    [self.statusItemPopup hidePopover];
+}
+
+- (void)didClickQuit {
+    [NSApp terminate:self];
 }
 
 - (void)didClickPoweredBy: (id)sender {
