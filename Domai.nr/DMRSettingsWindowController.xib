@@ -7,6 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="DMRSettingsWindowController">
             <connections>
+                <outlet property="iconCheckbox" destination="jgj-lZ-E5O" id="sKl-eB-l44"/>
                 <outlet property="recorderControl" destination="t6H-o5-dNx" id="kWO-57-Gk1"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>

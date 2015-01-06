@@ -21,6 +21,7 @@
     DMRViewController *_viewController;
     GAJavaScriptTracker *_tracker;
     DDHotKey *_hotKey;
+    BOOL _isUsingGreyscaleIcon;
 }
 @end
 
@@ -48,10 +49,17 @@
     } else {
         [self addDefaultKeyboardShortcut];
     }
-    [[NSUserDefaultsController sharedUserDefaultsController] addObserver:self
-                                                              forKeyPath:@"keyboardShortcut"
-                                                                 options:NSKeyValueObservingOptionNew
-                                                                 context:NULL];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(NSUserDefaultsDidChange:)
+                                                 name:NSUserDefaultsDidChangeNotification
+                                               object:nil];
+
+    NSString *greyscaleIcon = [[NSUserDefaults standardUserDefaults] objectForKey:@"greyscaleIcon"];
+    if ([greyscaleIcon isEqualToString:@"YES"]) {
+        _isUsingGreyscaleIcon = YES;
+    }
+
 }
 
 - (void)addKeyboardShortcut {
@@ -75,8 +83,38 @@
 }
 
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    if (_hotKey != nil) {
+- (void)NSUserDefaultsDidChange:(NSNotification *)notification {
+
+    NSDictionary *keyboardShortcut = [[notification object] objectForKey:@"keyboardShortcut"];
+    NSString *greyscaleIcon = [[notification object] objectForKey:@"greyscaleIcon"];
+
+    if (greyscaleIcon == nil) {
+        [[NSUserDefaults standardUserDefaults] setObject:@"YES" forKey:@"greyscaleIcon"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        _isUsingGreyscaleIcon = YES;
+    }
+
+    if ([greyscaleIcon isEqualToString:@"YES"] && !_isUsingGreyscaleIcon) {
+        NSLog(@"switch to greyscale icon");
+        _isUsingGreyscaleIcon = YES;
+    } else if ([greyscaleIcon isEqualToString:@"NO"] && _isUsingGreyscaleIcon) {
+        NSLog(@"switch to COLOR icon");
+        _isUsingGreyscaleIcon = NO;
+    }
+
+    NSNumber *ksModFlags = keyboardShortcut[@"modifierFlags"];
+    long hkModFlags = (long)_hotKey.modifierFlags;
+
+    NSNumber *ksKeyCode = keyboardShortcut[@"keyCode"];
+    long hkKeyCode = (long)_hotKey.keyCode;
+
+    NSNumber *ksKeyCodeNum = [NSNumber numberWithUnsignedLong:ksKeyCode];
+    NSNumber *ksModFlagNum = [NSNumber numberWithLong:ksModFlags];
+    NSNumber *hkKeyCodeNum = [NSNumber numberWithLong:hkKeyCode];
+    NSNumber *hkModFlagNum = [NSNumber numberWithLong:hkModFlags];
+
+
+    if (_hotKey != nil && (![hkModFlagNum isEqualTo:ksModFlags] || ![hkKeyCodeNum isEqualTo:ksKeyCode])) {
         DDHotKeyCenter *c = [DDHotKeyCenter sharedHotKeyCenter];
         [c unregisterHotKey:_hotKey];
     }

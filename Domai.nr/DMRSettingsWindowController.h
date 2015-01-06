@@ -13,6 +13,7 @@
 
 @property (weak) IBOutlet SRRecorderControl *recorderControl;
 @property (nonatomic) NSViewController *opener;
+@property (weak) IBOutlet NSButton *iconCheckbox;
 
 - (IBAction)didClickClose:(id)sender;
 - (IBAction)didToggleBlackWhiteIcon:(id)sender;
