@@ -6,16 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Domai.nr/DMRAppDelegate.m"
-            timestampString = "442216195.358825"
+            timestampString = "442248530.750276"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
-            landmarkName = "-observeValueForKeyPath:ofObject:change:context:"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "-openWindowShortcut"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
