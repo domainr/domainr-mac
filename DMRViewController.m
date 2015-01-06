@@ -140,7 +140,7 @@
                    label:nil
                    value:-1
                withError:nil];
-    NSString *url = @"https://domainr.com/about";
+    NSString *url = @"https://domainr.com/";
     url = [self urlWithMacID:url];
     [self openUrl:url];
 }
