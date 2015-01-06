@@ -10,10 +10,12 @@
 #import "AXStatusItemPopup.h"
 #import "DMRTextFieldView.h"
 #import "DMRResultsTableView.h"
+#import "GAJavaScriptTracker.h"
 
 @interface DMRViewController : NSViewController<NSTableViewDataSource, NSTableViewDelegate, ExtendedTableViewDelegate>
 
 @property(weak, nonatomic) AXStatusItemPopup *statusItemPopup;
 @property(nonatomic) DMRTextFieldView *searchBox;
+@property (nonatomic) GAJavaScriptTracker *tracker;
 
 @end

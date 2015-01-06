@@ -135,6 +135,11 @@
 }
 
 - (void)didClickPoweredBy: (id)sender {
+    [_tracker trackEvent:@"macAppOpenURLFromPoweredByLink"
+                  action:@"clickPoweredByLink"
+                   label:nil
+                   value:-1
+               withError:nil];
     NSString *url = @"https://domainr.com/about";
     url = [self urlWithMacID:url];
     [self openUrl:url];
@@ -221,24 +226,45 @@
 - (void)search:(id)selector {
     [_spinner setHidden:NO];
     [_spinner startAnimation:self];
+
+    [_tracker trackEvent:@"macAppSearch"
+                  action:@"searchBegin"
+                   label:nil
+                   value:-1
+               withError:nil];
+
     [SVHTTPRequest GET:@"https://domai.nr/api/json/search"
             parameters:@{
                          @"q": _searchBox.stringValue,
                          @"client_id": @"mac"
                          }
             completion:^(id response, NSHTTPURLResponse *urlResponse, NSError *error) {
-                _domains = response[@"results"];
-                _query = response[@"query"];
-                
-                [_tableView enumerateAvailableRowViewsUsingBlock:^(NSTableRowView *rowView, NSInteger row){
-                    NSTableCellView *cellView = [rowView viewAtColumn:0];
-                    cellView.textField.textColor = [NSColor colorWithRed:40/255.0f green:112/255.0f blue:176/255.0f alpha:1.0];
-                }];
-                
-                
-                [_tableView reloadData];
-                [_spinner stopAnimation:self];
-                [_spinner setHidden:YES];
+
+                if (error != nil) {
+                    [_tracker trackEvent:@"macAppSearch"
+                                  action:@"searchError"
+                                   label:nil
+                                   value:-1
+                               withError:nil];
+                } else {
+                    [_tracker trackEvent:@"macAppSearch"
+                                  action:@"searchSuccess"
+                                   label:nil
+                                   value:-1
+                               withError:nil];
+                    _domains = response[@"results"];
+                    _query = response[@"query"];
+
+                    [_tableView enumerateAvailableRowViewsUsingBlock:^(NSTableRowView *rowView, NSInteger row){
+                        NSTableCellView *cellView = [rowView viewAtColumn:0];
+                        cellView.textField.textColor = [NSColor colorWithRed:40/255.0f green:112/255.0f blue:176/255.0f alpha:1.0];
+                    }];
+
+
+                    [_tableView reloadData];
+                    [_spinner stopAnimation:self];
+                    [_spinner setHidden:YES];
+                }
             }
      ];
 }
@@ -249,6 +275,11 @@
         NSString *url = [self urlForDomainObject:domainObject];
         url = [self urlWithMacID:url];
         [self openUrl:url];
+        [_tracker trackEvent:@"macAppOpenURLFromResult"
+                      action:@"clickResult"
+                       label:nil
+                       value:-1
+                   withError:nil];
     } else {
         [self search:selector];
     }

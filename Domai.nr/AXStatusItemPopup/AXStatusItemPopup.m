@@ -147,6 +147,7 @@
 
 - (void)showPopover
 {
+    [_tracker trackPageview:@"foobar" withError:nil];
     [self showPopoverAnimated:_animated];
 }
 

@@ -35,6 +35,9 @@
 		B37E375D18ECAFED00B6C915 /* DMRViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B37E375B18ECAFED00B6C915 /* DMRViewController.xib */; };
 		B3D2097D1A5B20B1007DE7BE /* icon_active.png in Resources */ = {isa = PBXBuildFile; fileRef = B3D2097B1A5B20B1007DE7BE /* icon_active.png */; };
 		B3D2097E1A5B20B1007DE7BE /* icon_active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3D2097C1A5B20B1007DE7BE /* icon_active@2x.png */; };
+		B3D209841A5B7D31007DE7BE /* GAJavaScriptTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D209811A5B7D31007DE7BE /* GAJavaScriptTracker.m */; };
+		B3D209851A5B7D31007DE7BE /* GAJSWebViewEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D209831A5B7D31007DE7BE /* GAJSWebViewEngine.m */; };
+		B3D209871A5B8E66007DE7BE /* main.html in Resources */ = {isa = PBXBuildFile; fileRef = B3D209861A5B8E65007DE7BE /* main.html */; };
 		B3D5114E18F642DD00819992 /* DMRResultsTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D5114D18F642DD00819992 /* DMRResultsTableView.m */; };
 		B3D5115118F6454F00819992 /* DMRTableRowView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D5115018F6454F00819992 /* DMRTableRowView.m */; };
 		B3D5115418F77EB700819992 /* hover.png in Resources */ = {isa = PBXBuildFile; fileRef = B3D5115218F77EB700819992 /* hover.png */; };
@@ -100,6 +103,11 @@
 		B37E375B18ECAFED00B6C915 /* DMRViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DMRViewController.xib; path = ../DMRViewController.xib; sourceTree = "<group>"; };
 		B3D2097B1A5B20B1007DE7BE /* icon_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_active.png; sourceTree = "<group>"; };
 		B3D2097C1A5B20B1007DE7BE /* icon_active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_active@2x.png"; sourceTree = "<group>"; };
+		B3D209801A5B7D31007DE7BE /* GAJavaScriptTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAJavaScriptTracker.h; sourceTree = "<group>"; };
+		B3D209811A5B7D31007DE7BE /* GAJavaScriptTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GAJavaScriptTracker.m; sourceTree = "<group>"; };
+		B3D209821A5B7D31007DE7BE /* GAJSWebViewEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAJSWebViewEngine.h; sourceTree = "<group>"; };
+		B3D209831A5B7D31007DE7BE /* GAJSWebViewEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GAJSWebViewEngine.m; sourceTree = "<group>"; };
+		B3D209861A5B8E65007DE7BE /* main.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = main.html; sourceTree = "<group>"; };
 		B3D5114C18F642DD00819992 /* DMRResultsTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMRResultsTableView.h; sourceTree = "<group>"; };
 		B3D5114D18F642DD00819992 /* DMRResultsTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMRResultsTableView.m; sourceTree = "<group>"; };
 		B3D5114F18F6454F00819992 /* DMRTableRowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMRTableRowView.h; sourceTree = "<group>"; };
@@ -196,6 +204,11 @@
 		B356193318EA4641008EFAC1 /* Domai.nr */ = {
 			isa = PBXGroup;
 			children = (
+				B3D209861A5B8E65007DE7BE /* main.html */,
+				B3D209801A5B7D31007DE7BE /* GAJavaScriptTracker.h */,
+				B3D209811A5B7D31007DE7BE /* GAJavaScriptTracker.m */,
+				B3D209821A5B7D31007DE7BE /* GAJSWebViewEngine.h */,
+				B3D209831A5B7D31007DE7BE /* GAJSWebViewEngine.m */,
 				B3D2097B1A5B20B1007DE7BE /* icon_active.png */,
 				B3D2097C1A5B20B1007DE7BE /* icon_active@2x.png */,
 				B34F025F18F7C3100075E61F /* available.png */,
@@ -370,6 +383,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3D5115418F77EB700819992 /* hover.png in Resources */,
+				B3D209871A5B8E66007DE7BE /* main.html in Resources */,
 				B3D5115518F77EB700819992 /* hover@2x.png in Resources */,
 				B3D2097E1A5B20B1007DE7BE /* icon_active@2x.png in Resources */,
 				B34F026818F7C3100075E61F /* available@2x.png in Resources */,
@@ -440,6 +454,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3E62A8F18F4CB75008BB974 /* INPopoverWindowFrame.m in Sources */,
+				B3D209841A5B7D31007DE7BE /* GAJavaScriptTracker.m in Sources */,
 				B37E375C18ECAFED00B6C915 /* DMRViewController.m in Sources */,
 				B37E374B18ECAEC600B6C915 /* DDHotKeyCenter.m in Sources */,
 				B3E62A8B18F4CAED008BB974 /* INPopoverWindow.m in Sources */,
@@ -447,6 +462,7 @@
 				B37E374C18ECAEC600B6C915 /* DDHotKeyUtilities.m in Sources */,
 				B3D5115118F6454F00819992 /* DMRTableRowView.m in Sources */,
 				B37E374618ECAE8E00B6C915 /* AXStatusItemPopup.m in Sources */,
+				B3D209851A5B7D31007DE7BE /* GAJSWebViewEngine.m in Sources */,
 				B3D5114E18F642DD00819992 /* DMRResultsTableView.m in Sources */,
 				B34F027118F7C5540075E61F /* DMRTextFieldView.m in Sources */,
 				B356193A18EA4641008EFAC1 /* main.m in Sources */,

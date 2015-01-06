@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "INPopoverWindow.h"
 #import "INPopoverController.h"
+#import "GAJavaScriptTracker.h"
 
 @interface AXStatusItemPopup : NSView
 
@@ -17,6 +18,7 @@
 @property(assign, nonatomic) BOOL animated;
 @property(strong, nonatomic) NSImage *image;
 @property(strong, nonatomic) NSImage *alternateImage;
+@property(strong, nonatomic) GAJavaScriptTracker *tracker;
 @property(strong, nonatomic) NSStatusItem *statusItem;
 @property(strong, nonatomic) INPopoverController *popover;
 
