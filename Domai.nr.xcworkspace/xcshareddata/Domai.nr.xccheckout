@@ -12,6 +12,8 @@
 	<dict>
 		<key>1CBAD3DF-BCDC-475C-9D1C-7DAD85419CC2</key>
 		<string>ssh://github.com/domainr/domainr-mac.git</string>
+		<key>97641889692A69A4B270231FB25F4B84FB93CA0B</key>
+		<string>git://github.com/Kentzo/ShortcutRecorder.git</string>
 		<key>CA94F585FCBDE32EED060D208555F89C6CE1E82C</key>
 		<string>https://github.com/domainr/domainr-mac.git</string>
 	</dict>
@@ -21,6 +23,8 @@
 	<dict>
 		<key>1CBAD3DF-BCDC-475C-9D1C-7DAD85419CC2</key>
 		<string>../../Domai.nr</string>
+		<key>97641889692A69A4B270231FB25F4B84FB93CA0B</key>
+		<string>..ShortcutRecorder/</string>
 		<key>CA94F585FCBDE32EED060D208555F89C6CE1E82C</key>
 		<string>..</string>
 	</dict>
@@ -47,6 +51,14 @@
 			<string>CA94F585FCBDE32EED060D208555F89C6CE1E82C</string>
 			<key>IDESourceControlWCCName</key>
 			<string>domainr-mac</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>97641889692A69A4B270231FB25F4B84FB93CA0B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ShortcutRecorder</string>
 		</dict>
 	</array>
 </dict>
