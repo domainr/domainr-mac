@@ -82,7 +82,7 @@
                                                                                       self.view.frame.size.width - (kSpacer * 2),
                                                                                       14)];
         [poweredByDomainr setBordered:NO];
-        poweredByDomainr.title = @"Powered by Domai.nr";
+        poweredByDomainr.title = @"Powered by Domainr";
         [poweredByDomainr setAction:@selector(didClickPoweredBy:)];
         poweredByDomainr.target = self;
         poweredByDomainr.font = [NSFont fontWithName:poweredByDomainr.font.fontName size:11.0f];
