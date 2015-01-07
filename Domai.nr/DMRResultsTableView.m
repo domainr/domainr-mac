@@ -1,9 +1,9 @@
 //
 //  DMRResultsTableView.m
-//  Domai.nr
+//  Domainr
 //
 //  Created by Connor Montgomery on 09/04/2014.
-//  Copyright (c) 2014 Domai.nr. All rights reserved.
+//  Copyright (c) 2014 Domainr. All rights reserved.
 //
 
 #import "DMRResultsTableView.h"
