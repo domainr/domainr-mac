@@ -181,7 +181,7 @@
 - (NSString *)urlForDomainObject:(NSDictionary *)domainObject {
     NSString *domain = domainObject[@"domain"];
     NSString *safeQuery = [_query stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSString *URL = [NSString stringWithFormat:@"https://domai.nr/%@/with/%@", safeQuery, domain];
+    NSString *URL = [NSString stringWithFormat:@"https://domainr.com/%@/with/%@", safeQuery, domain];
     return URL;
 }
 
@@ -249,7 +249,7 @@
                    value:-1
                withError:nil];
 
-    [SVHTTPRequest GET:@"https://domai.nr/api/json/search"
+    [SVHTTPRequest GET:@"https://domainr.com/api/json/search"
             parameters:@{
                          @"q": _searchBox.stringValue,
                          @"client_id": @"mac"
