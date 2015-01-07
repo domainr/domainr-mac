@@ -122,7 +122,7 @@
 }
 
 - (void)startTrackingEvents {
-    NSString *googleAnalyticsId = @"UA-27167671-1";
+    NSString *googleAnalyticsId = @"UA-3336530-14";
     NSInteger batchSize = 0;
     NSInteger batchInterval = 1;
     _tracker = [GAJavaScriptTracker trackerWithAccountID:googleAnalyticsId];
