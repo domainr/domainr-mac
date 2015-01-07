@@ -211,7 +211,7 @@
 		B356192118EA4641008EFAC1 = {
 			isa = PBXGroup;
 			children = (
-				B356193318EA4641008EFAC1 /* Domai.nr */,
+				B356193318EA4641008EFAC1 /* Domainr */,
 				B356195118EA4641008EFAC1 /* Domai.nrTests */,
 				B356192C18EA4641008EFAC1 /* Frameworks */,
 				B356192B18EA4641008EFAC1 /* Products */,
@@ -250,7 +250,7 @@
 			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
-		B356193318EA4641008EFAC1 /* Domai.nr */ = {
+		B356193318EA4641008EFAC1 /* Domainr */ = {
 			isa = PBXGroup;
 			children = (
 				B3D209861A5B8E65007DE7BE /* main.html */,
@@ -297,6 +297,7 @@
 				B3D2098E1A5B9078007DE7BE /* DMRSettingsWindowController.m */,
 				B3D2098F1A5B9078007DE7BE /* DMRSettingsWindowController.xib */,
 			);
+			name = Domainr;
 			path = Domai.nr;
 			sourceTree = "<group>";
 		};
@@ -414,7 +415,7 @@
 			attributes = {
 				CLASSPREFIX = DMR;
 				LastUpgradeCheck = 0510;
-				ORGANIZATIONNAME = Domai.nr;
+				ORGANIZATIONNAME = Domainr;
 				TargetAttributes = {
 					B356194A18EA4641008EFAC1 = {
 						TestTargetID = B356192918EA4641008EFAC1;
@@ -723,7 +724,7 @@
 		B356195F18EA4641008EFAC1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Domai.nr.app/Contents/MacOS/Domai.nr";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Domai.nr.app/Contents/MacOS/Domainr";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
@@ -745,7 +746,7 @@
 		B356196018EA4641008EFAC1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Domai.nr.app/Contents/MacOS/Domai.nr";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Domai.nr.app/Contents/MacOS/Domainr";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
