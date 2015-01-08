@@ -53,21 +53,6 @@ static NSGradient *gradientWithTargetColor(NSColor *targetColor) {
     return [[NSGradient alloc] initWithColors:colors atLocations:locations colorSpace:[NSColorSpace sRGBColorSpace]];
 }
 
-- (void)drawBackgroundInRect:(NSRect)dirtyRect {
-    // Custom background drawing. We don't call super at all.
-    [self.backgroundColor set];
-    // Fill with the background color first
-    NSRectFill(self.bounds);
-    
-    // Draw a white/alpha gradient
-    if (self.mouseInside) {
-        NSColor* myColor = [NSColor colorWithRed:224/255.0f green:230/255.0f blue:223/255.0f alpha:1.0];
-        [myColor set];
-        // then treat it like you would any other color, e.g.:
-        NSRectFill(self.bounds);
-    }
-}
-
 - (NSRect)separatorRect {
     NSRect separatorRect = self.bounds;
     separatorRect.origin.y = NSMaxY(separatorRect) - 1;
@@ -85,7 +70,9 @@ static NSGradient *gradientWithTargetColor(NSColor *targetColor) {
 - (void)drawSelectionInRect:(NSRect)dirtyRect {
     // Check the selectionHighlightStyle, in case it was set to None
     if (self.selectionHighlightStyle != NSTableViewSelectionHighlightStyleNone) {
+
         NSColor* myColor = [NSColor colorWithRed:40/255.0f green:112/255.0f blue:176/255.0f alpha:1.0];
+
         [myColor set];
         NSRectFill(self.bounds);
     }

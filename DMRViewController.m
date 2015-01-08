@@ -270,13 +270,6 @@
                                withError:nil];
                     _domains = response[@"results"];
                     _query = response[@"query"];
-
-                    [_tableView enumerateAvailableRowViewsUsingBlock:^(NSTableRowView *rowView, NSInteger row){
-                        NSTableCellView *cellView = [rowView viewAtColumn:0];
-                        cellView.textField.textColor = [NSColor colorWithRed:40/255.0f green:112/255.0f blue:176/255.0f alpha:1.0];
-                    }];
-
-
                     [_tableView reloadData];
                     [_spinner stopAnimation:self];
                     [_spinner setHidden:YES];
@@ -307,6 +300,7 @@
     
     //use this if you want to reuse the cells
     DMRTableRowView *result = [tableView makeViewWithIdentifier:cellID owner:self];
+    result.domainData = _domains[row];
     
     if (result == nil) {
         
@@ -333,8 +327,21 @@
         NSTableCellView *cellView = [rowView viewAtColumn:0];
         if (rowView.selected){
             cellView.textField.textColor = [NSColor whiteColor];
-        } else{
+        } else {
             cellView.textField.textColor = [NSColor colorWithRed:40/255.0f green:112/255.0f blue:176/255.0f alpha:1.0];
+
+            NSString *availability = _domains[row][@"availability"];
+            NSString *domain = _domains[row][@"domain"];
+            if ([availability isEqualToString:@"unavailable"]) {
+                cellView.textField.textColor = [NSColor colorWithRed:65/255.0f green:66/255.0f blue:64/255.0f alpha:1.0];
+            }
+
+            if ([availability isEqualToString:@"tld"]) {
+                cellView.textField.textColor = [NSColor colorWithRed:65/255.0f green:66/255.0f blue:64/255.0f alpha:1.0];
+                cellView.textField.stringValue = [NSString stringWithFormat:@".%@", domain];
+                cellView.textField.font = [NSFont fontWithName:@"HelveticaNeue-Medium" size:18];
+            }
+
         }
     }];
 }
@@ -376,8 +383,26 @@
         [result addSubview:imageView];
         result.imageView = imageView;
     }
-    
-    result.textField.stringValue = _domains[row][@"domain"];
+
+    result.textField.font = [NSFont fontWithName:@"HelveticaNeue" size:18];
+    NSString *domain = _domains[row][@"domain"];
+    result.textField.stringValue = domain;
+    NSString *availability = _domains[row][@"availability"];
+
+    result.textField.textColor = [NSColor colorWithRed:40/255.0f green:112/255.0f blue:176/255.0f alpha:1.0];
+
+    if ([availability isEqualToString:@"unavailable"]) {
+        result.textField.textColor = [NSColor colorWithRed:65/255.0f green:66/255.0f blue:64/255.0f alpha:1.0];
+    }
+
+    if ([availability isEqualToString:@"tld"]) {
+        result.textField.textColor = [NSColor colorWithRed:65/255.0f green:66/255.0f blue:64/255.0f alpha:1.0];
+        result.textField.stringValue = [NSString stringWithFormat:@".%@", domain];
+        result.textField.font = [NSFont fontWithName:@"HelveticaNeue-Medium" size:18];
+    }
+
+    NSLog(@"%@ => %@", _domains[row][@"domain"], _domains[row][@"availability"]);
+
     NSImage *image = [NSImage imageNamed:_domains[row][@"availability"]];
     [image setSize:NSSizeFromCGSize(CGSizeMake(10.0f, 10.0f))];
     [result.imageView setImage:image];
