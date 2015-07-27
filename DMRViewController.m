@@ -169,7 +169,7 @@
 }
 
 - (NSString *)urlWithMacID:(NSString *)url {
-    NSString *newUrl = [NSString stringWithFormat:@"%@?client_id=mac", url];
+    NSString *newUrl = [NSString stringWithFormat:@"%@?client_id={your-mashape-key-or-client_id}", url];
     return newUrl;
 }
 
@@ -252,7 +252,7 @@
     [SVHTTPRequest GET:@"https://domainr.com/api/json/search"
             parameters:@{
                          @"q": _searchBox.stringValue,
-                         @"client_id": @"mac"
+                         @"client_id": @"{your-mashape-key}"
                          }
             completion:^(id response, NSHTTPURLResponse *urlResponse, NSError *error) {
 
